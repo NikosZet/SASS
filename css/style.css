@@ -6,6 +6,16 @@
   box-sizing: inherit;
 }
 
+.border-blue {
+  border-color: blue;
+  border-width: 2px;
+}
+
+.border-red {
+  border-color: red;
+  border-width: 2px;
+}
+
 .half {
   height: 707.5px;
 }
@@ -25,16 +35,6 @@
 
 .second-class {
   font: 2rem;
-}
-
-.border-blue {
-  border-color: blue;
-  border-width: 2px;
-}
-
-.border-red {
-  border-color: red;
-  border-width: 2px;
 }
 
 a {
@@ -137,6 +137,30 @@ a.link-class:hover, a.link-class:focus, a.link-class:active {
 
 .pb-6 {
   padding-bottom: 60px;
+}
+
+.column-1 {
+  width: 100%;
+}
+
+.column-2 {
+  width: 50%;
+}
+
+.column-3 {
+  width: 33.3333333333%;
+}
+
+.column-4 {
+  width: 25%;
+}
+
+.column-5 {
+  width: 20%;
+}
+
+.column-6 {
+  width: 16.6666666667%;
 }
 
 .column-1 {

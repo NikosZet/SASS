@@ -10,7 +10,15 @@
 $primary-color: black;
 $border-width: 2px;
 
+.border-blue {
+    border-color: blue;
+    border-width: $border-width;
+}
 
+.border-red {
+    border-color: red;
+    border-width: $border-width;
+}
 
 //OPERATIONS
 $container: 1440px;
@@ -42,9 +50,6 @@ $padding: 25px;
     height: half-heigth(5, 5);
 }
 
-
-
-
 //FUNCTION EXTEND
 .first-class {
     color: $primary-color;
@@ -55,22 +60,6 @@ $padding: 25px;
     @extend .first-class;  
     font: 2rem; 
 }
-
-
-
-
-//USE OF VARIABLES
-.border-blue {
-    border-color: blue;
-    border-width: $border-width;
-}
-
-.border-red {
-    border-color: red;
-    border-width: $border-width;
-}
-
-
 
 //NESTING PROCESS
 
@@ -96,9 +85,7 @@ a { font-family: sans-serif; color: $primary-color;
 }
 
 
-
-
-//MIXINS
+//MIXINS(IMPORTED)
 .translateX {
     @include translateX(12px);
 }
@@ -120,11 +107,10 @@ a { font-family: sans-serif; color: $primary-color;
 }
 
 
+////////////LOOPS
 
 
-//LOOPS
-
-////////FOR LOOP
+//FOR LOOP
 
 @for $space from 1 through 6
 {
@@ -146,20 +132,20 @@ a { font-family: sans-serif; color: $primary-color;
 // .padding-bottom-2: 20px; etc
 
 
-//COLUMNS - GRIDS - PERCENTAGES
-// @for $space from 1 through 6
-// {
-//     $width: percentage( 1 / $space ); //operation for width
+//USEFUL FOR COLUMNS - GRIDS - PERCENTAGES
+@for $space from 1 through 6
+{
+    $width: percentage( 1 / $space ); //operation for width
 
-//     .column-#{$space}
-//     {
-//         width: $width;             
-//     }
+    .column-#{$space}
+    {
+        width: $width;             
+    }
 
-// }
+}
 
 
-//////////////WHILE LOOP
+//WHILE LOOP
 
 $num: 1;
 
@@ -175,8 +161,7 @@ $num: 1;
     $num: $num + 1;
 }
 
-
-/////EACH LOOP ( QUERIES, GRIDS SYSTEMS )
+//EACH LOOP ( QUERIES, GRIDS SYSTEMS )
 
 $white: #fff;
 $black: #000;
@@ -195,7 +180,8 @@ $colors: (
 
 //GENERATES CLASSES
 // .text-white { color: #fff; }
-// etc
+// .text-black { color: #000; }
+// etc..
 @each $color, $hex in $colors
 {
     .text-#{$color}
