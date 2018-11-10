@@ -1,6 +1,15 @@
+//IMPORT
+@import 'reset.css';
+
+
+
+
+
 //VARIABLES
 $primary-color: black;
 $border-width: 2px;
+
+
 
 //OPERATIONS
 $container: 1440px;
@@ -23,7 +32,7 @@ $padding: 25px;
 }
 
 .half {
-    height: half-heigth(2, 2); //MATH OPERATION
+    height: half-heigth(2, 2); //ARGUMENTS FOR MATH OPERATION
 }
 .half-1 {
     height: half-heigth(3, 3);
@@ -35,17 +44,18 @@ $padding: 25px;
 
 
 
-
+//FUNCTION EXTEND
 .first-class {
     color: $primary-color;
     background-color: white;
 }
 
-//FUNCTIONS EXTEND
 .second-class { 
     @extend .first-class;  
     font: 2rem; 
 }
+
+
 
 
 //USE OF VARIABLES
@@ -62,6 +72,7 @@ $padding: 25px;
 
 
 //NESTING PROCESS
+
 //INSTEAD OF:
 // a { font-family: sans-serif; color: $primary-color; }
 // a:hover,
@@ -71,7 +82,6 @@ $padding: 25px;
 // a.link-class:hover,
 // a.link-class:focus,
 // a:visited { color: blue; }
-
 
 a { font-family: sans-serif; color: $primary-color;
     &:hover,
@@ -84,14 +94,10 @@ a { font-family: sans-serif; color: $primary-color;
     }
 }
 
+
+
+
 //MIXINS 
-@mixin translateX( $val ) {
-    -webkit-transform: translateX($val);
-    -moz-transform: translateX($val);
-    -ms-transform: translateX($val);
-    -o-transform: translateX($val);
-    transform: translateX($val);
-}
 
 //INSTEAD OF
 // .translateX {
@@ -101,6 +107,14 @@ a { font-family: sans-serif; color: $primary-color;
 //     -o-transform: translateX(10px);
 //     transform: translateX(10px);
 // }
+
+@mixin translateX( $val ) {
+    -webkit-transform: translateX($val);
+    -moz-transform: translateX($val);
+    -ms-transform: translateX($val);
+    -o-transform: translateX($val);
+    transform: translateX($val);
+}
 
 .translateX {
     @include translateX(12px);
