@@ -118,3 +118,94 @@ a { font-family: sans-serif; color: $primary-color;
 .box-3 {
     @include animate-time(600ms);
 }
+
+
+
+
+//LOOPS
+
+////////FOR LOOP
+
+@for $space from 1 through 6
+{
+    .pt-#{$space}
+    {
+        padding-top: 10px * $space;             
+    }
+
+    .pb-#{$space}
+    {
+        padding-bottom: 10px * $space;             
+    }
+}
+
+// .padding-top-1: 10px; 
+// .padding-top-2: 20px; etc
+
+// .padding-bottom-1: 10px; 
+// .padding-bottom-2: 20px; etc
+
+
+//COLUMNS - GRIDS - PERCENTAGES
+// @for $space from 1 through 6
+// {
+//     $width: percentage( 1 / $space ); //operation for width
+
+//     .column-#{$space}
+//     {
+//         width: $width;             
+//     }
+
+// }
+
+
+//////////////WHILE LOOP
+
+$num: 1;
+
+@while $num < 7
+{
+    $width: percentage( 1 / $num ); //operation for width
+
+    .column-#{$num}
+    {
+        width: $width;             
+    }
+
+    $num: $num + 1;
+}
+
+
+/////EACH LOOP ( QUERIES, GRIDS SYSTEMS )
+
+$white: #fff;
+$black: #000;
+$red: #f00;
+$primary: #ccc;
+$secondary: #333;
+
+//ARRAY
+$colors: (
+    'white' $white,
+    'black' $black,
+    'red' $red,
+    'primary' $primary,
+    'secondary' $secondary
+);
+
+//GENERATES CLASSES
+// .text-white { color: #fff; }
+// etc
+@each $color, $hex in $colors
+{
+    .text-#{$color}
+    {
+        color: $hex;
+    }
+
+    .background-#{$color}
+    {
+         background-color: $hex;
+    }
+}
+
