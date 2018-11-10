@@ -1,0 +1,134 @@
+//VARIABLES
+$primary-color: black;
+$border-width: 2px;
+
+
+
+//OPERATIONS
+$container: 1440px;
+$padding: 25px;
+
+//INSTEAD OF
+// .half {
+//     height: $container / 2 - $padding / 2; //MATH OPERATION
+// }
+// .half1 {
+//     height: $container / 2 - $padding / 2;
+// }
+// .half2 {
+//     height: $container / 2 - $padding / 2;
+// }
+
+//FUNCTIONS
+@function half-heigth($first, $second){
+    @return $container / $first - $padding / $second;
+}
+
+.half {
+    height: half-heigth(2, 2); //MATH OPERATION
+}
+.half-1 {
+    height: half-heigth(3, 3);
+}
+.half-2 {
+    height: half-heigth(5, 5);
+}
+
+
+
+
+
+.first-class {
+    color: $primary-color;
+    background-color: white;
+}
+
+//FUNCTIONS EXTEND
+.second-class { 
+    @extend .first-class;  
+    font: 2rem; 
+}
+
+
+//USE OF VARIABLES
+.border-blue {
+    border-color: blue;
+    border-width: $border-width;
+}
+
+.border-red {
+    border-color: red;
+    border-width: $border-width;
+}
+
+
+
+//NESTING PROCESS
+//INSTEAD OF:
+// a { font-family: sans-serif; color: $primary-color; }
+// a:hover,
+// a:focus,
+// a:visited { color: blue; }
+// a.link-class { color: green; }
+// a.link-class:hover,
+// a.link-class:focus,
+// a:visited { color: blue; }
+
+
+a { font-family: sans-serif; color: $primary-color;
+    &:hover,
+    &:focus,
+    &:active { color: blue; }
+    &.link-class { color: green; 
+        &:hover,
+        &:focus,
+        &:active { color: black; }
+    }
+}
+
+//MIXINS 
+@mixin translateX( $val ) {
+    -webkit-transform: translateX($val);
+    -moz-transform: translateX($val);
+    -ms-transform: translateX($val);
+    -o-transform: translateX($val);
+    transform: translateX($val);
+}
+
+//INSTEAD OF
+// .translateX {
+//     -webkit-transform: translateX(10px);
+//     -moz-transform: translateX(10px);
+//     -ms-transform: translateX(10px);
+//     -o-transform: translateX(10px);
+//     transform: translateX(10px);
+// }
+
+.translateX {
+    @include translateX(12px);
+}
+
+.transformX {
+    @include translateX(15px);
+}
+
+//default value
+@mixin animate-time($time: 400ms) {
+    -webkit-transition: $time ease;
+    -moz-transition: $time ease;
+    -ms-transition: $time ease;
+    -o-transition: $time ease;
+    transition: $time ease;
+}
+
+.box-1 {
+    @include animate-time; //default value
+}
+
+.box-2 {
+    @include animate-time(500ms);
+}
+
+.box-3 {
+    @include animate-time(600ms);
+}
