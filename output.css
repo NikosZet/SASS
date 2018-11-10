@@ -1,4 +1,10 @@
-@import url(reset.css);
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
 .half {
   height: 707.5px; }
 

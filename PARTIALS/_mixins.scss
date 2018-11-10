@@ -1,0 +1,27 @@
+//MIXINS 
+
+//INSTEAD OF
+// .translateX {
+//     -webkit-transform: translateX(10px);
+//     -moz-transform: translateX(10px);
+//     -ms-transform: translateX(10px);
+//     -o-transform: translateX(10px);
+//     transform: translateX(10px);
+// }
+
+@mixin translateX( $val ) {
+    -webkit-transform: translateX($val);
+    -moz-transform: translateX($val);
+    -ms-transform: translateX($val);
+    -o-transform: translateX($val);
+    transform: translateX($val);
+}
+
+//default value
+@mixin animate-time($time: 400ms) {
+    -webkit-transition: $time ease;
+    -moz-transition: $time ease;
+    -ms-transition: $time ease;
+    -o-transition: $time ease;
+    transition: $time ease;
+}
